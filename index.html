@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF 뷰어 온라인</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.3.122/pdf.min.js"></script>
+</head>
+<body>
+    <!-- 업로드 영역 -->
+    <div id="upload-section">
+        <div class="upload-container">
+            <div id="upload-area">
+                <div class="upload-icon">📄</div>
+                <h2>PDF 뷰어 온라인</h2>
+                <p>PDF 파일을 선택하거나 드래그 앤 드롭하세요</p>
+                <input type="file" id="file-input" accept=".pdf" />
+                <button id="upload-btn">파일 선택</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 뷰어 영역 -->
+    <div id="viewer-section" class="hidden">
+        <!-- 사이드바 -->
+        <div id="sidebar">
+            <div class="sidebar-toggle" id="sidebar-toggle">☰</div>
+            <div class="sidebar-content">
+                <button class="sidebar-btn" id="new-file">📁 새 파일</button>
+                
+                <!-- 줌 컨트롤 섹션 -->
+                <div class="sidebar-section">
+                    <div class="sidebar-section-title">화면 크기</div>
+                    <div class="zoom-controls">
+                        <button class="zoom-btn" id="zoom-out">-</button>
+                        <span id="zoom-display">100%</span>
+                        <button class="zoom-btn" id="zoom-in">+</button>
+                    </div>
+                    <button class="sidebar-btn" id="fit-width">📐 폭 맞춤</button>
+                    <button class="sidebar-btn" id="actual-size">🔍 실제 크기</button>
+                </div>
+                
+                <button class="sidebar-btn" id="zoom-fit">🔍 맞춤</button>
+                <button class="sidebar-btn" id="copy-selected">📋 복사</button>
+            </div>
+        </div>
+        
+        <!-- PDF 컨테이너 -->
+        <div id="pdf-viewer">
+            <div id="pages-wrapper"></div>
+        </div>
+    </div>
+
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.3.122/pdf.worker.min.js';
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
